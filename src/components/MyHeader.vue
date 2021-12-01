@@ -3,8 +3,8 @@
       <h1>Boolflix</h1>
 
       <div id="form">
-        <input type="text" placeholder="Cerca un film">
-        <button>Cerca</button>
+        <input type="text" placeholder="Cerca un film"  v-model="filmChoice">
+        <button @click="$emit('changeFilm', filmChoice)">Cerca</button>
       </div>
 
       
@@ -16,9 +16,15 @@
 
 export default {
   name: 'MyHeader',
-  components: {
-    
-  }
+  props: {
+      genres: Array
+  },
+
+  data() {
+    return {
+      filmChoice: ""
+    }
+  },
 }
 </script>
 

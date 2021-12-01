@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <MyHeader/>
+    <MyHeader :films="filmList" @changeFilm="startSearch"/>
 
-    <MyBody/>
+    <MyBody :searchVar="filmSearch" @filmReady="getFilmList"/>
   </div>
 </template>
 
@@ -15,6 +15,23 @@ export default {
   components: {
     MyHeader,
     MyBody
+  },
+  data(){
+    return {
+      filmList: [],
+
+      filmSearch: ""
+    }
+  },
+
+  methods: {
+    getFilmList(allFilm){
+      this.filmList = allFilm
+    },
+
+    startSearch(filmSearch){
+      this.filmSearch = filmSearch
+    }
   }
 }
 </script>
