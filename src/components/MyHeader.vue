@@ -4,22 +4,15 @@
 
       <div id="form">
         <input type="text" placeholder="Cerca un film"  v-model="filmChoice">
-        <button @click="$emit('changeFilm', filmChoice)">Cerca</button>
+        <button @click.prevent="$emit('changeFilm', filmChoice)">Cerca</button>
       </div>
-
-      
   </header>
 </template>
 
 <script>
-/* import HelloWorld from './components/HelloWorld.vue' */
 
 export default {
   name: 'MyHeader',
-  props: {
-      genres: Array
-  },
-
   data() {
     return {
       filmChoice: ""
