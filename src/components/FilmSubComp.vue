@@ -19,8 +19,6 @@
       
       <h3 v-else>La lingua originale non disponibile</h3>
 
-      <!-- <h3>{{details.original_language}}</h3> -->
-
       <h3>Voto Generale: {{details.vote_average / 2}} <i class="far fa-star"></i> <i class="far fa-star"></i> <i class="far fa-star"></i></h3>
 
       <p v-if="details.overview">Trama: {{details.overview}}</p>
@@ -51,14 +49,14 @@ export default {
     margin-left: 30px;
     width: calc(100% / 4 - 10px);
     margin: 10px 5px;
-    border: 3px solid black;
     color: red;
+}
 
-    .imgThumbCont {
+.imgThumbCont {
       position: relative;
     }
 
-    .imgThumbCont:hover .imgThumb{
+    .films:hover .imgThumb{
       display: none;
     }
 
@@ -74,12 +72,7 @@ export default {
       left: 5px;
     }
 
-    /* .fa-star {
-      font-size: 50px;
-      background-color: white;
-    } */
-
-    .imgThumbCont:hover .infoFilm {
+    .films:hover .infoFilm {
       display: block;
     }
 
@@ -101,6 +94,5 @@ export default {
       font-size: 13px;
       font-weight: bold;
     }
-}
 
 </style>

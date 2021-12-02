@@ -51,51 +51,48 @@ export default {
     margin-left: 30px;
     width: calc(100% / 4 - 10px);
     margin: 10px 5px;
-    border: 3px solid black;
     color: red;
-
-    .imgThumbCont {
-      position: relative;
-    }
-
-    .imgThumbCont:hover .imgThumb{
-      display: none;
-    }
-
-    .imgThumb{
-      width: 100%;
-      height: 500px;
-    }
-
-    .infoSeries {
-      display: none;
-      position: absolute;
-      top: 5px;
-      left: 5px;
-    }
-
-    .imgThumbCont:hover .infoSeries {
-      display: block;
-    }
-
-    span {
-      font-weight: bold;
-      font-size: 18px;
-    }
-
-    .imgFlag {
-        width: 20px;
-        margin-top: 15px;
-    }
-
-    h3 {
-        margin-top: 15px;
-    }
-
-    p {
-      font-size: 13px;
-      font-weight: bold;
-    }
+}
+.imgThumbCont {
+  position: relative;
 }
 
+.series:hover .imgThumb{
+  display: none;
+}
+
+.imgThumb{
+  width: 100%;
+  height: 500px;
+}
+
+.infoSeries {
+  display: none;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+.series:hover .infoSeries {
+  display: block;
+}
+
+span {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.imgFlag {
+    width: 20px;
+    margin-top: 15px;
+}
+
+h3 {
+    margin-top: 15px;
+}
+
+p {
+  font-size: 13px;
+  font-weight: bold;
+}
 </style>

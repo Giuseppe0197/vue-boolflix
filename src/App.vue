@@ -39,21 +39,16 @@ export default {
     startSearch(filmSearch){
       this.filmSearch = filmSearch;
       this.getFilmBool();
-    }
+      this.getSeriesBool();
+    },
+    getSeriesBool() {
+      axios
+      .get(this.apiSeries+this.filmSearch)
+      .then((result) => {
+        this.seriesList = result.data.results
+      });
+    },
   },
-
-  getSeriesBool() {
-    axios
-    .get(this.apiSeries+this.filmSearch)
-    .then((result) => {
-      this.seriesList = result.data.results
-    });
-  },
-  startSearchSeries(filmSearch){
-    this.filmSearch = filmSearch;
-    this.getSeriesBool();
-  }
-
 }
 </script>
 
