@@ -24,7 +24,7 @@ export default {
       apiUrl: `https://api.themoviedb.org/3/search/movie?api_key=8531cd4b5660045d3ad85863d06b1d4b&language=it-IT&query=`,
       apiSeries: `https://api.themoviedb.org/3/search/tv?api_key=8531cd4b5660045d3ad85863d06b1d4b&language=it-IT&query=`,
       seriesList: [],
-      seriesSearch: ""
+      /* seriesSearch: "" */
     }
   },
   methods: {
@@ -43,13 +43,14 @@ export default {
   },
 
   getSeriesBool() {
-    axios.get(this.apiSeries+this.seriesSearch)
-    .then((element) => {
-      this.seriesList = element.data.results
+    axios
+    .get(this.apiSeries+this.filmSearch)
+    .then((result) => {
+      this.seriesList = result.data.results
     });
   },
-  startSearchSeries(){
-    /* this.filmSearch = filmSearch; */
+  startSearchSeries(filmSearch){
+    this.filmSearch = filmSearch;
     this.getSeriesBool();
   }
 

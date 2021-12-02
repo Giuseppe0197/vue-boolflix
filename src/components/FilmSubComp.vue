@@ -3,11 +3,11 @@
     
     <div class="imgThumbCont">
 
-      <img :src="`https://image.tmdb.org/t/p/w342${details.poster_path}`" class="imgThumb">
+      <img v-if="details.poster_path === null" src="https://www.losbagliato.it/wp-content/uploads/2021/07/copertina-netflix-23-giugno-960x960.png" alt="" class="imgThumb">
 
-    </div>
+      <img v-else :src="`https://image.tmdb.org/t/p/w342${details.poster_path}`" class="imgThumb">
 
-    <div class="infoFilm">
+      <div class="infoFilm">
 
       <h3 class="titleFilm">Titolo del Film: {{details.title}}</h3>
 
@@ -23,7 +23,15 @@
 
       <h3>Voto Generale: {{details.vote_average / 2}}</h3>
 
+      <p v-if="details.overview">Trama: {{details.overview}}</p>
+
+      <p v-else>Trama non dipsonibile</p>
+
     </div>
+
+    </div>
+
+    
 
 
 
@@ -52,25 +60,33 @@ export default {
     border: 3px solid black;
     color: red;
 
-    /* .imgThumbCont:hover{
+    .imgThumbCont {
+      position: relative;
+    }
+
+    .imgThumbCont:hover .imgThumb{
       display: none;
-    } */
+    }
 
     .imgThumb{
       width: 100%;
+      height: 500px;
     }
 
     /* .imgThumb:hover {
       display: none;
-    }
+    } */
 
     .infoFilm {
       display: none;
+      position: absolute;
+      top: 5px;
+      left: 5px;
     }
 
-    .imgThumb:hover .infoFilm {
+    .imgThumbCont:hover .infoFilm {
       display: block;
-    } */
+    }
 
     span {
       font-weight: bold;
@@ -84,6 +100,11 @@ export default {
 
     h3 {
         margin-top: 15px;
+    }
+
+    p {
+      font-size: 13px;
+      font-weight: bold;
     }
 }
 

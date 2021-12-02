@@ -7,9 +7,9 @@
     :details="film"/>
 
     <SeriesSubComp
-    v-for="series, j in seriesList" 
+    v-for="tv, j in seriesList" 
     :key="j"
-    :serie="series"/>
+    :details="tv"/>
 
   </main>
 </template>
