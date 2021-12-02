@@ -21,7 +21,7 @@
 
       <!-- <h3>{{details.original_language}}</h3> -->
 
-      <h3>Voto Generale: {{details.vote_average / 2}}</h3>
+      <h3>Voto Generale: {{details.vote_average / 2}} <i class="far fa-star"></i> <i class="far fa-star"></i> <i class="far fa-star"></i></h3>
 
       <p v-if="details.overview">Trama: {{details.overview}}</p>
 
@@ -30,12 +30,6 @@
     </div>
 
     </div>
-
-    
-
-
-
-      
 
   </div>
 </template>
@@ -73,16 +67,17 @@ export default {
       height: 500px;
     }
 
-    /* .imgThumb:hover {
-      display: none;
-    } */
-
     .infoFilm {
       display: none;
       position: absolute;
       top: 5px;
       left: 5px;
     }
+
+    /* .fa-star {
+      font-size: 50px;
+      background-color: white;
+    } */
 
     .imgThumbCont:hover .infoFilm {
       display: block;
