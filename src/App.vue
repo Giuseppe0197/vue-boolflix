@@ -2,7 +2,7 @@
   <div id="app">
     <MyHeader @changeFilm="startSearch" />
 
-    <MyBody :filmList="filmList" />
+    <MyBody :filmList="filmList"  :seriesList="seriesList" />
   </div>
 </template>
 
@@ -21,7 +21,10 @@ export default {
     return {
       filmList: [],
       filmSearch: "",
-      apiUrl: `https://api.themoviedb.org/3/search/movie?api_key=8531cd4b5660045d3ad85863d06b1d4b&language=en-US&query=`,
+      apiUrl: `https://api.themoviedb.org/3/search/movie?api_key=8531cd4b5660045d3ad85863d06b1d4b&language=it-IT&query=`,
+      apiSeries: `https://api.themoviedb.org/3/search/tv?api_key=8531cd4b5660045d3ad85863d06b1d4b&language=it-IT&query=`,
+      seriesList: [],
+      seriesSearch: ""
     }
   },
   methods: {
@@ -38,6 +41,17 @@ export default {
       this.getFilmBool();
     }
   },
+
+  getSeriesBool() {
+    axios.get(this.apiSeries+this.seriesSearch)
+    .then((element) => {
+      this.seriesList = element.data.results
+    });
+  },
+  startSearchSeries(){
+    /* this.filmSearch = filmSearch; */
+    this.getSeriesBool();
+  }
 
 }
 </script>

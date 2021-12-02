@@ -6,19 +6,27 @@
     :key="i"
     :details="film"/>
 
+    <SeriesSubComp
+    v-for="series, j in seriesList" 
+    :key="j"
+    :serie="series"/>
+
   </main>
 </template>
 
 <script>
 import FilmSubComp from '@/components/FilmSubComp.vue'
+import SeriesSubComp from '@/components/SeriesSubComp.vue'
 
 export default {
   name: 'MyBody',
   components: {
-    FilmSubComp
+    FilmSubComp,
+    SeriesSubComp
   },
   props: {
-      filmList: Array
+      filmList: Array,
+      seriesList: Array
   },
 }
 </script>
