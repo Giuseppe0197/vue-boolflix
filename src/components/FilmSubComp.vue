@@ -16,10 +16,12 @@
       <img v-if="details.original_language === 'en'" src="../assets/Flag_of_the_United_Kingdom.png" alt="" class="imgFlag">
 
       <img v-else-if="details.original_language === 'it'" src="../assets/italian_flag.jpg" alt="" class="imgFlag">
-      
-      <h3 v-else>La lingua originale non disponibile</h3>
 
-      <h3>Voto Generale: {{details.vote_average / 2}} <i class="far fa-star"></i> <i class="far fa-star"></i> <i class="far fa-star"></i></h3>
+      <img v-else-if="details.original_language === 'ja'" src="../assets/flag_japan.png" alt="" class="imgFlag">
+      
+      <h3 v-else>La lingua originale non &egrave; disponibile</h3>
+
+      <h3>Voto Generale: <star-rating :rating="getStar()" star-size="30" increment="1" :show-rating="false"/> </h3>
 
       <p v-if="details.overview">Trama: {{details.overview}}</p>
 
@@ -33,12 +35,21 @@
 </template>
 
 <script>
-
+import StarRating from 'vue-star-rating'
 
 export default {
   name: 'FilmSubComp',
+  components: {
+    StarRating
+  },
   props: {
     details: Object
+  },
+
+  methods: {
+    getStar(){
+      return this.details.vote_average / 2
+    }
   }
 }
 </script>

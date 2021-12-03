@@ -18,11 +18,12 @@
 import FilmSubComp from '@/components/FilmSubComp.vue'
 import SeriesSubComp from '@/components/SeriesSubComp.vue'
 
+
 export default {
   name: 'MyBody',
   components: {
     FilmSubComp,
-    SeriesSubComp
+    SeriesSubComp,
   },
   props: {
       filmList: Array,

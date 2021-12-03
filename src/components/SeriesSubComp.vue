@@ -5,7 +5,7 @@
 
       <img v-if="details.poster_path === null" src="https://www.losbagliato.it/wp-content/uploads/2021/07/copertina-netflix-23-giugno-960x960.png" alt="" class="imgThumb">
 
-      <img :src="`https://image.tmdb.org/t/p/w342${details.poster_path}`" class="imgThumb">
+      <img v-else :src="`https://image.tmdb.org/t/p/w342${details.poster_path}`" class="imgThumb">
 
       <div class="infoSeries">
 
@@ -16,12 +16,14 @@
         <img v-if="details.original_language === 'en'" src="../assets/Flag_of_the_United_Kingdom.png" alt="" class="imgFlag">
 
         <img v-else-if="details.original_language === 'it'" src="../assets/italian_flag.jpg" alt="" class="imgFlag">
+
+        <img v-else-if="details.original_language === 'ja'" src="../assets/flag_japan.png" alt="" class="imgFlag">
         
-        <h3 v-else>La lingua originale non disponibile</h3>
+        <h3 v-else>La lingua originale non &egrave; disponibile</h3>
 
         <!-- <h3>{{serie.original_language}}</h3> -->
 
-        <h3>Voto Generale: {{details.vote_average / 2}}</h3>
+        <h3>Voto Generale: <star-rating :rating="getStar()" star-size="30" increment="1" :show-rating="false"/></h3>
 
         <p v-if="details.overview">Trama: {{details.overview}}</p>
 
@@ -36,12 +38,20 @@
 </template>
 
 <script>
-
+import StarRating from 'vue-star-rating'
 
 export default {
   name: 'SeriesSubComp',
+  components: {
+    StarRating
+  },
   props: {
     details: Object
+  },
+  methods: {
+    getStar(){
+      return this.details.vote_average / 2
+    }
   }
 }
 </script>
