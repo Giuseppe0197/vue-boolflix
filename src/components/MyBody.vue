@@ -2,13 +2,13 @@
   <main>
 
     <FilmSubComp
-    v-for="film, i in filmList" 
-    :key="i"
+    v-for="film in filmList" 
+    :key="film.id"
     :details="film"/>
 
     <SeriesSubComp
-    v-for="tv, j in seriesList" 
-    :key="j"
+    v-for="tv in seriesList" 
+    :key="tv.id"
     :details="tv"/>
 
   </main>
