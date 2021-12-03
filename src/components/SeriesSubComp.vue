@@ -18,12 +18,14 @@
         <img v-else-if="details.original_language === 'it'" src="../assets/italian_flag.jpg" alt="" class="imgFlag">
 
         <img v-else-if="details.original_language === 'ja'" src="../assets/flag_japan.png" alt="" class="imgFlag">
+
+        <img v-else-if="details.original_language === 'cn'" src="../assets/flag_china.png" alt="" class="imgFlag">
         
         <h3 v-else>La lingua originale non &egrave; disponibile</h3>
 
         <!-- <h3>{{serie.original_language}}</h3> -->
 
-        <h3>Voto Generale: <star-rating :rating="getStar()" star-size="30" increment="1" :show-rating="false"/></h3>
+        <h3>Voto Generale: <star-rating :rating="getStar()" :star-size = "20" :increment = "1" :show-rating="false"/></h3>
 
         <p v-if="details.overview">Trama: {{details.overview}}</p>
 
@@ -61,7 +63,8 @@ export default {
     margin-left: 30px;
     width: calc(100% / 4 - 10px);
     margin: 10px 5px;
-    color: red;
+    color: white;
+    background-color: black;
 }
 .imgThumbCont {
   position: relative;
@@ -79,8 +82,10 @@ export default {
 .infoSeries {
   display: none;
   position: absolute;
+  height: 100vh;
   top: 5px;
   left: 5px;
+  overflow-y: auto;
 }
 
 .series:hover .infoSeries {
